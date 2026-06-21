@@ -1,0 +1,595 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		031AB463F81F4DE37F84075D /* CaptureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A46510E96A42EAD47FFCFDB /* CaptureView.swift */; };
+		094F7AED179FF548081EDC70 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D90B2A1500A98CF67F73777 /* ContentView.swift */; };
+		0D32D277054D113600A1EDE2 /* StickerChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB04620CDEAFF8337A83946 /* StickerChip.swift */; };
+		1504D341BA1CCBC8DB4A56C6 /* LibraryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8340826A88E7CF532F7F937B /* LibraryView.swift */; };
+		20AD588CE68D826555B91CBF /* CloudShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309A2AAE7C993C6A67808124 /* CloudShape.swift */; };
+		2D0842BD99919295C5A0C9A4 /* LiveStickifyCameraController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3953AE647A0BF36529E73204 /* LiveStickifyCameraController.swift */; };
+		36691ECB18830074A3881CE2 /* StickifyTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EBDEFCE99D526F2620B3391 /* StickifyTheme.swift */; };
+		4BF583C5D6C8B81DEC538F03 /* CameraPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3319DC392474E1DDBBFCC295 /* CameraPreviewView.swift */; };
+		50CDD7C4C2DCA2DD95F838D1 /* StickifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DF7079C69361E316E26335 /* StickifyApp.swift */; };
+		5D4A37FA8490B9F62E17E9F4 /* StickerStyleRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C99A54B3C4D1D25E029087 /* StickerStyleRenderer.swift */; };
+		65E37080B0835A3599E1A31B /* StickerDemoModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C91706CED49304B4C66396 /* StickerDemoModels.swift */; };
+		6E1C7FA40E4094D184F71AA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F9A95AEF3ED4FD1A0F53121 /* LaunchScreen.storyboard */; };
+		C4A8E2D91B5F4F0A9C7D6E3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9B7C6D5E4F3210A9B8C7D6E /* Assets.xcassets */; };
+		950577628AF83AA843810021 /* IMG_6278.HEIC in Resources */ = {isa = PBXBuildFile; fileRef = 24DC1839A34EF0F13232D1E9 /* IMG_6278.HEIC */; };
+		A86FA2E4ADA8108DAEDB13D5 /* LiveStickifyCameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7C11A72A14CF741F36D081 /* LiveStickifyCameraView.swift */; };
+		AD9E4C1BFCEC6D8B7EB8ADFF /* CloudTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE5567CD418B2F664CBD1043 /* CloudTabBar.swift */; };
+		B0C2AFAE91C8E3E017A44934 /* StickifyDemoStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D1AC3D9A1A8C547EC18034 /* StickifyDemoStateTests.swift */; };
+		B3FB8D073E7D2A39BB30CE88 /* StickerSegmentationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D7F0DEF95492561D62EF76 /* StickerSegmentationService.swift */; };
+		B7AC6FEBFA0B7D9726474F76 /* PlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77727192309C023CA67488A5 /* PlaygroundView.swift */; };
+		D96B43162E10D8B2D5F5BB7D /* StickerMaskRendererTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAEBAF4CB6FF47496C6B7C68 /* StickerMaskRendererTests.swift */; };
+		F21C6EAE927DE08782F25673 /* StickerMaskRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40985D7299C49921AFC77762 /* StickerMaskRenderer.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		645A5ED6A4617607095BDC2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 086D0D5B02F383A8177643B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDBAC90AF3F82461823968CE;
+			remoteInfo = Stickify;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DC1839A34EF0F13232D1E9 /* IMG_6278.HEIC */ = {isa = PBXFileReference; lastKnownFileType = file; path = IMG_6278.HEIC; sourceTree = "<group>"; };
+		2F9A95AEF3ED4FD1A0F53121 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		309A2AAE7C993C6A67808124 /* CloudShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudShape.swift; sourceTree = "<group>"; };
+		3319DC392474E1DDBBFCC295 /* CameraPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewView.swift; sourceTree = "<group>"; };
+		3953AE647A0BF36529E73204 /* LiveStickifyCameraController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStickifyCameraController.swift; sourceTree = "<group>"; };
+		3EBDEFCE99D526F2620B3391 /* StickifyTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickifyTheme.swift; sourceTree = "<group>"; };
+		40985D7299C49921AFC77762 /* StickerMaskRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerMaskRenderer.swift; sourceTree = "<group>"; };
+		47C99A54B3C4D1D25E029087 /* StickerStyleRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerStyleRenderer.swift; sourceTree = "<group>"; };
+		4A7C11A72A14CF741F36D081 /* LiveStickifyCameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveStickifyCameraView.swift; sourceTree = "<group>"; };
+		6BEC087AB3641D857E6518FC /* StickifyTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = StickifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		77727192309C023CA67488A5 /* PlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaygroundView.swift; sourceTree = "<group>"; };
+		8340826A88E7CF532F7F937B /* LibraryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryView.swift; sourceTree = "<group>"; };
+		88D1AC3D9A1A8C547EC18034 /* StickifyDemoStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickifyDemoStateTests.swift; sourceTree = "<group>"; };
+		8A46510E96A42EAD47FFCFDB /* CaptureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureView.swift; sourceTree = "<group>"; };
+		94C91706CED49304B4C66396 /* StickerDemoModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerDemoModels.swift; sourceTree = "<group>"; };
+		9AB04620CDEAFF8337A83946 /* StickerChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerChip.swift; sourceTree = "<group>"; };
+		9D90B2A1500A98CF67F73777 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A1D7F0DEF95492561D62EF76 /* StickerSegmentationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerSegmentationService.swift; sourceTree = "<group>"; };
+		A9B7C6D5E4F3210A9B8C7D6E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A6DF7079C69361E316E26335 /* StickifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickifyApp.swift; sourceTree = "<group>"; };
+		BAEBAF4CB6FF47496C6B7C68 /* StickerMaskRendererTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StickerMaskRendererTests.swift; sourceTree = "<group>"; };
+		BE5567CD418B2F664CBD1043 /* CloudTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudTabBar.swift; sourceTree = "<group>"; };
+		FAEBCE48879AD8EFCF92CAC1 /* Stickify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stickify.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		112D1485D7C661D6F55775C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAEBCE48879AD8EFCF92CAC1 /* Stickify.app */,
+				6BEC087AB3641D857E6518FC /* StickifyTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1276722AA2A3562F47F4403A /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				77727192309C023CA67488A5 /* PlaygroundView.swift */,
+			);
+			path = Playground;
+			sourceTree = "<group>";
+		};
+		240A293C6F000E42615A8846 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				63E6AE4BA756BAA4122E0B73 /* Capture */,
+				924E86AC8FE70DB78829ED16 /* Library */,
+				46C843EC1AD3630753766E87 /* LiveCamera */,
+				1276722AA2A3562F47F4403A /* Playground */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		277CC504AECD36F4A7FAAAC2 /* StickifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				BAEBAF4CB6FF47496C6B7C68 /* StickerMaskRendererTests.swift */,
+				88D1AC3D9A1A8C547EC18034 /* StickifyDemoStateTests.swift */,
+				D69A6B2CEBDF0D3D3F070E6A /* Fixtures */,
+			);
+			path = StickifyTests;
+			sourceTree = "<group>";
+		};
+		2FEDB729B50D76A5BB710C09 /* Stickify */ = {
+			isa = PBXGroup;
+			children = (
+				9D90B2A1500A98CF67F73777 /* ContentView.swift */,
+				A6DF7079C69361E316E26335 /* StickifyApp.swift */,
+				D5A4C3FC34BAC94B37C3454B /* Components */,
+				B4375656E1E6D406306EF952 /* Design */,
+				240A293C6F000E42615A8846 /* Features */,
+				EFB823824435B7C642B053CD /* Models */,
+				57FD265ED80B4C26BB8C4F75 /* Resources */,
+				528BD74B29254F73C2675106 /* Services */,
+			);
+			path = Stickify;
+			sourceTree = "<group>";
+		};
+		46C843EC1AD3630753766E87 /* LiveCamera */ = {
+			isa = PBXGroup;
+			children = (
+				3319DC392474E1DDBBFCC295 /* CameraPreviewView.swift */,
+				4A7C11A72A14CF741F36D081 /* LiveStickifyCameraView.swift */,
+			);
+			path = LiveCamera;
+			sourceTree = "<group>";
+		};
+		528BD74B29254F73C2675106 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				3953AE647A0BF36529E73204 /* LiveStickifyCameraController.swift */,
+				40985D7299C49921AFC77762 /* StickerMaskRenderer.swift */,
+				A1D7F0DEF95492561D62EF76 /* StickerSegmentationService.swift */,
+				47C99A54B3C4D1D25E029087 /* StickerStyleRenderer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		57FD265ED80B4C26BB8C4F75 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A9B7C6D5E4F3210A9B8C7D6E /* Assets.xcassets */,
+				2F9A95AEF3ED4FD1A0F53121 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		63E6AE4BA756BAA4122E0B73 /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				8A46510E96A42EAD47FFCFDB /* CaptureView.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		924E86AC8FE70DB78829ED16 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				8340826A88E7CF532F7F937B /* LibraryView.swift */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		B4375656E1E6D406306EF952 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				3EBDEFCE99D526F2620B3391 /* StickifyTheme.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		BBB8C2627B3C23835E664948 = {
+			isa = PBXGroup;
+			children = (
+				2FEDB729B50D76A5BB710C09 /* Stickify */,
+				277CC504AECD36F4A7FAAAC2 /* StickifyTests */,
+				112D1485D7C661D6F55775C7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D5A4C3FC34BAC94B37C3454B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				309A2AAE7C993C6A67808124 /* CloudShape.swift */,
+				BE5567CD418B2F664CBD1043 /* CloudTabBar.swift */,
+				9AB04620CDEAFF8337A83946 /* StickerChip.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D69A6B2CEBDF0D3D3F070E6A /* Fixtures */ = {
+			isa = PBXGroup;
+			children = (
+				24DC1839A34EF0F13232D1E9 /* IMG_6278.HEIC */,
+			);
+			path = Fixtures;
+			sourceTree = "<group>";
+		};
+		EFB823824435B7C642B053CD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				94C91706CED49304B4C66396 /* StickerDemoModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BD48CF8194D7538BF2EDC787 /* StickifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04B2CF6F4C632D1970F3E57E /* Build configuration list for PBXNativeTarget "StickifyTests" */;
+			buildPhases = (
+				31FBD889383049AD07850F40 /* Sources */,
+				AB3318CE1052F6F23A8994FE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				034E1F3670A385DF3C92F049 /* PBXTargetDependency */,
+			);
+			name = StickifyTests;
+			packageProductDependencies = (
+			);
+			productName = StickifyTests;
+			productReference = 6BEC087AB3641D857E6518FC /* StickifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DDBAC90AF3F82461823968CE /* Stickify */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FC081A1484A2D5B33247D648 /* Build configuration list for PBXNativeTarget "Stickify" */;
+			buildPhases = (
+				5A51AFF7EEA64ABC0CB8C261 /* Sources */,
+				734EC4F7E89F4774BA2E62BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Stickify;
+			packageProductDependencies = (
+			);
+			productName = Stickify;
+			productReference = FAEBCE48879AD8EFCF92CAC1 /* Stickify.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		086D0D5B02F383A8177643B7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BD48CF8194D7538BF2EDC787 = {
+						DevelopmentTeam = 2P8G67QD3N;
+					};
+					DDBAC90AF3F82461823968CE = {
+						DevelopmentTeam = 2P8G67QD3N;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 98EF8DA983B0C045BFDF1B9E /* Build configuration list for PBXProject "Stickify" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = BBB8C2627B3C23835E664948;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 112D1485D7C661D6F55775C7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DDBAC90AF3F82461823968CE /* Stickify */,
+				BD48CF8194D7538BF2EDC787 /* StickifyTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		734EC4F7E89F4774BA2E62BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C4A8E2D91B5F4F0A9C7D6E3B /* Assets.xcassets in Resources */,
+				6E1C7FA40E4094D184F71AA1 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AB3318CE1052F6F23A8994FE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				950577628AF83AA843810021 /* IMG_6278.HEIC in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		31FBD889383049AD07850F40 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D96B43162E10D8B2D5F5BB7D /* StickerMaskRendererTests.swift in Sources */,
+				B0C2AFAE91C8E3E017A44934 /* StickifyDemoStateTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5A51AFF7EEA64ABC0CB8C261 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BF583C5D6C8B81DEC538F03 /* CameraPreviewView.swift in Sources */,
+				031AB463F81F4DE37F84075D /* CaptureView.swift in Sources */,
+				20AD588CE68D826555B91CBF /* CloudShape.swift in Sources */,
+				AD9E4C1BFCEC6D8B7EB8ADFF /* CloudTabBar.swift in Sources */,
+				094F7AED179FF548081EDC70 /* ContentView.swift in Sources */,
+				1504D341BA1CCBC8DB4A56C6 /* LibraryView.swift in Sources */,
+				2D0842BD99919295C5A0C9A4 /* LiveStickifyCameraController.swift in Sources */,
+				A86FA2E4ADA8108DAEDB13D5 /* LiveStickifyCameraView.swift in Sources */,
+				B7AC6FEBFA0B7D9726474F76 /* PlaygroundView.swift in Sources */,
+				0D32D277054D113600A1EDE2 /* StickerChip.swift in Sources */,
+				65E37080B0835A3599E1A31B /* StickerDemoModels.swift in Sources */,
+				F21C6EAE927DE08782F25673 /* StickerMaskRenderer.swift in Sources */,
+				B3FB8D073E7D2A39BB30CE88 /* StickerSegmentationService.swift in Sources */,
+				5D4A37FA8490B9F62E17E9F4 /* StickerStyleRenderer.swift in Sources */,
+				50CDD7C4C2DCA2DD95F838D1 /* StickifyApp.swift in Sources */,
+				36691ECB18830074A3881CE2 /* StickifyTheme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		034E1F3670A385DF3C92F049 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDBAC90AF3F82461823968CE /* Stickify */;
+			targetProxy = 645A5ED6A4617607095BDC2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		219D5057F7F7803D8756859A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sirius.StickifyTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stickify.app/Stickify";
+			};
+			name = Release;
+		};
+		2682FC1A484DB887046FD603 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_DEBUG_DYLIB = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Stickify uses the camera to capture objects and cut them into on-device stickers.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Stickify saves exported stickers and captured originals to your photo library when you choose to keep them.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Stickify lets you choose photos to turn objects into on-device stickers.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.stickerapp.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		3BFA5BAC13F25FE1FD1956FE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 2P8G67QD3N;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		7C6D3AB590293B24EE68D5E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_DEBUG_DYLIB = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Stickify uses the camera to capture objects and cut them into on-device stickers.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Stickify saves exported stickers and captured originals to your photo library when you choose to keep them.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Stickify lets you choose photos to turn objects into on-device stickers.";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = app.stickerapp.app;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		B3780416B0C70D94F8425EF1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.sirius.StickifyTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Stickify.app/Stickify";
+			};
+			name = Debug;
+		};
+		B651CB41FAD6F8EAB78013F9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 2P8G67QD3N;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		04B2CF6F4C632D1970F3E57E /* Build configuration list for PBXNativeTarget "StickifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B3780416B0C70D94F8425EF1 /* Debug */,
+				219D5057F7F7803D8756859A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		98EF8DA983B0C045BFDF1B9E /* Build configuration list for PBXProject "Stickify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B651CB41FAD6F8EAB78013F9 /* Debug */,
+				3BFA5BAC13F25FE1FD1956FE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		FC081A1484A2D5B33247D648 /* Build configuration list for PBXNativeTarget "Stickify" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2682FC1A484DB887046FD603 /* Debug */,
+				7C6D3AB590293B24EE68D5E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 086D0D5B02F383A8177643B7 /* Project object */;
+}

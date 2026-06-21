@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stickify Static Preview</title>
+  <style>
+    :root {
+      --sky: #7fd7ff;
+      --blue: #0056b8;
+      --red: #e52b1e;
+      --grey: #ebebeb;
+      --ink: #2d2926;
+      --paper: #ffffff;
+      --soft: rgba(45, 41, 38, 0.14);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 16% 18%, rgba(127, 215, 255, 0.58), transparent 26%),
+        linear-gradient(135deg, #f8fbff 0%, #f1f1f1 44%, #fff7f4 100%);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(320px, 420px) 280px;
+      gap: 34px;
+      align-items: center;
+      padding: 28px;
+    }
+
+    .phone {
+      position: relative;
+      width: min(390px, calc(100vw - 32px));
+      aspect-ratio: 390 / 844;
+      overflow: hidden;
+      border: 12px solid #171717;
+      border-radius: 48px;
+      background: var(--sky);
+      box-shadow: 0 28px 70px rgba(20, 28, 34, 0.32);
+    }
+
+    .island {
+      position: absolute;
+      top: 11px;
+      left: 50%;
+      z-index: 20;
+      width: 124px;
+      height: 34px;
+      transform: translateX(-50%);
+      border-radius: 999px;
+      background: #111;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      display: none;
+      overflow: hidden;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .capture {
+      background:
+        linear-gradient(rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.18)),
+        linear-gradient(160deg, #7fd7ff 0%, #d8f4ff 48%, #ffe6de 100%);
+    }
+
+    .header {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      padding: 58px 22px 0;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 36px;
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .sub {
+      margin-top: 7px;
+      font-size: 14px;
+      font-weight: 800;
+      opacity: 0.78;
+    }
+
+    .capture h1,
+    .capture .sub {
+      color: white;
+      text-shadow: 0 7px 18px rgba(0, 0, 0, 0.28);
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .round,
+    .pill {
+      display: grid;
+      place-items: center;
+      border: 0;
+      background: rgba(255, 255, 255, 0.94);
+      color: var(--ink);
+      font-weight: 900;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .round {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+    }
+
+    .pill {
+      height: 44px;
+      padding: 0 15px;
+      border-radius: 999px;
+      color: var(--blue);
+    }
+
+    .scanner {
+      position: absolute;
+      inset: 116px 22px 204px;
+      display: grid;
+      place-items: center;
+    }
+
+    .focus {
+      position: relative;
+      width: 234px;
+      height: 300px;
+      border: 4px solid var(--blue);
+      border-radius: 42px;
+      background: rgba(255, 255, 255, 0.18);
+      box-shadow: 0 0 0 12px rgba(0, 86, 184, 0.1), 0 22px 60px rgba(0, 86, 184, 0.28);
+    }
+
+    .focus::before,
+    .focus::after {
+      content: "";
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      height: 3px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .focus::before {
+      top: 58px;
+    }
+
+    .focus::after {
+      bottom: 58px;
+    }
+
+    .subject {
+      position: absolute;
+      left: 50%;
+      top: 52%;
+      width: 142px;
+      height: 142px;
+      display: grid;
+      place-items: center;
+      transform: translate(-50%, -50%) rotate(-8deg);
+      border: 9px solid white;
+      border-radius: 34px;
+      background: #ffe66d;
+      font-size: 62px;
+      box-shadow: 0 22px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .shelf {
+      position: absolute;
+      right: 18px;
+      top: 270px;
+      display: grid;
+      gap: 0;
+      width: 74px;
+      justify-items: center;
+      padding: 12px 0;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.36);
+      backdrop-filter: blur(14px);
+    }
+
+    .mini-sticker {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      margin-top: -8px;
+      border: 5px solid white;
+      border-radius: 18px;
+      background: var(--paper);
+      font-size: 25px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.13);
+    }
+
+    .mini-sticker:first-child {
+      margin-top: 0;
+    }
+
+    .status {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 234px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 10px 16px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      background: rgba(0, 0, 0, 0.46);
+      color: white;
+      font-size: 13px;
+      font-weight: 800;
+      text-align: center;
+    }
+
+    .capture-controls {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 124px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tool {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      font-size: 12px;
+      font-weight: 900;
+      box-shadow: 0 14px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .shutter {
+      width: 92px;
+      height: 92px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.24);
+    }
+
+    .shutter::after {
+      content: "";
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: var(--blue);
+    }
+
+    .library,
+    .playground {
+      background: var(--sky);
+    }
+
+    .library-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px 16px;
+      padding: 28px 22px 0;
+    }
+
+    .cloud-card {
+      height: 112px;
+      display: grid;
+      place-items: center;
+      padding: 14px;
+      border-radius: 42px;
+      background: white;
+      text-align: center;
+      font-weight: 900;
+      box-shadow: 0 14px 22px rgba(0, 86, 184, 0.13);
+    }
+
+    .cloud-card.dashed {
+      border: 2px dashed rgba(0, 86, 184, 0.42);
+      background: rgba(255, 255, 255, 0.55);
+      color: var(--blue);
+    }
+
+    .count {
+      margin-top: 4px;
+      color: rgba(45, 41, 38, 0.6);
+      font-size: 12px;
+    }
+
+    .vault-strip {
+      display: flex;
+      gap: 8px;
+      padding: 16px 22px 0;
+    }
+
+    .segment {
+      flex: 1;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: white;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .segment.active {
+      background: var(--blue);
+      color: white;
+    }
+
+    .playground {
+      background: var(--grey);
+    }
+
+    .stage {
+      position: relative;
+      height: 374px;
+      margin: 24px 18px 0;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.68);
+      border-radius: 26px;
+      background: linear-gradient(135deg, white, rgba(127, 215, 255, 0.32), white);
+      box-shadow: 0 18px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    .mode-tag {
+      position: absolute;
+      left: 14px;
+      top: 14px;
+      padding: 8px 13px;
+      border-radius: 999px;
+      background: var(--red);
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .big-sticker {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      display: grid;
+      place-items: center;
+      border: 8px solid white;
+      border-radius: 28px;
+      background: #ffe66d;
+      font-size: 44px;
+      box-shadow: 0 14px 22px rgba(0, 0, 0, 0.16);
+    }
+
+    .big-sticker.one {
+      left: 88px;
+      top: 114px;
+      transform: rotate(-12deg);
+    }
+
+    .big-sticker.two {
+      left: 154px;
+      top: 154px;
+      background: #ff9f8a;
+      transform: rotate(9deg);
+    }
+
+    .big-sticker.three {
+      left: 124px;
+      top: 210px;
+      background: #a8f0c6;
+      transform: rotate(-3deg);
+    }
+
+    .tray-title {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px 22px 10px;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .tray {
+      display: flex;
+      gap: 12px;
+      overflow: hidden;
+      padding: 0 22px;
+    }
+
+    .mode-controls {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 104px;
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+
+    .mode-button {
+      width: 72px;
+      height: 72px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: white;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 900;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, 0.1);
+    }
+
+    .mode-button.active {
+      background: var(--red);
+      color: white;
+    }
+
+    .tabbar {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 8px;
+      z-index: 10;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+      padding: 10px;
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 -12px 30px rgba(0, 0, 0, 0.14);
+    }
+
+    .tab {
+      height: 58px;
+      border: 0;
+      border-radius: 24px;
+      background: transparent;
+      color: rgba(45, 41, 38, 0.58);
+      font: inherit;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .tab.active {
+      background: var(--ink);
+      color: white;
+    }
+
+    .notes {
+      max-width: 280px;
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.74);
+      box-shadow: 0 18px 44px rgba(33, 38, 42, 0.12);
+    }
+
+    .notes h2 {
+      margin: 0 0 10px;
+      font-size: 26px;
+      line-height: 1;
+    }
+
+    .notes p {
+      margin: 0;
+      color: rgba(45, 41, 38, 0.72);
+      font-size: 14px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+
+    @media (max-width: 760px) {
+      .workspace {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        gap: 20px;
+      }
+
+      .notes {
+        width: min(390px, calc(100vw - 32px));
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="workspace">
+    <section class="phone" aria-label="Stickify static iPhone preview">
+      <div class="island"></div>
+
+      <section class="screen capture active" data-screen="capture">
+        <div class="header">
+          <div>
+            <h1>Stickify</h1>
+            <div class="sub">万物皆可贴纸</div>
+          </div>
+          <div class="top-actions">
+            <div class="round">↻</div>
+            <div class="pill">☁ 8</div>
+          </div>
+        </div>
+        <div class="scanner">
+          <div class="focus">
+            <div class="subject">🧢</div>
+          </div>
+        </div>
+        <div class="shelf">
+          <div class="mini-sticker">🍓</div>
+          <div class="mini-sticker">🕶</div>
+          <div class="mini-sticker">🐶</div>
+          <div class="mini-sticker">✨</div>
+        </div>
+        <div class="status">对准物体，点快门制作透明 PNG，或点 Auto 选择多个主体</div>
+        <div class="capture-controls">
+          <div class="tool">相册</div>
+          <div class="shutter" aria-label="shutter"></div>
+          <div class="tool">Auto</div>
+        </div>
+      </section>
+
+      <section class="screen library" data-screen="library">
+        <div class="header">
+          <div>
+            <h1>The Sky Hub</h1>
+            <div class="sub">天空中转站</div>
+          </div>
+          <div class="pill">4 clouds</div>
+        </div>
+        <div class="library-grid">
+          <div class="cloud-card">Daily Finds<div class="count">12 stickers</div></div>
+          <div class="cloud-card">Outfits<div class="count">7 stickers</div></div>
+          <div class="cloud-card">Food Mood<div class="count">9 stickers</div></div>
+          <div class="cloud-card">Desk Bits<div class="count">6 stickers</div></div>
+          <div class="cloud-card">Travel<div class="count">5 stickers</div></div>
+          <div class="cloud-card dashed">＋ 新建云</div>
+        </div>
+        <div class="vault-strip">
+          <div class="segment active">类型</div>
+          <div class="segment">颜色</div>
+        </div>
+      </section>
+
+      <section class="screen playground" data-screen="playground">
+        <div class="header">
+          <div>
+            <h1>Playground</h1>
+            <div class="sub">从底部托盘点选贴纸</div>
+          </div>
+          <div class="pill" style="background: var(--red); color: white;">SUPER 3</div>
+        </div>
+        <div class="stage">
+          <div class="mode-tag">Fusion</div>
+          <div class="big-sticker one">🍓</div>
+          <div class="big-sticker two">🧢</div>
+          <div class="big-sticker three">✨</div>
+        </div>
+        <div class="tray-title">
+          <span>贴纸托盘</span>
+          <span style="color: var(--red);">清空画布</span>
+        </div>
+        <div class="tray">
+          <div class="mini-sticker">🍓</div>
+          <div class="mini-sticker">🧢</div>
+          <div class="mini-sticker">🐶</div>
+          <div class="mini-sticker">🕶</div>
+          <div class="mini-sticker">🍜</div>
+        </div>
+        <div class="mode-controls">
+          <div class="mode-button">Stack</div>
+          <div class="mode-button active">Fusion</div>
+          <div class="mode-button">Scatter</div>
+        </div>
+      </section>
+
+      <nav class="tabbar" aria-label="Preview tabs">
+        <button class="tab active" data-target="capture">Capture</button>
+        <button class="tab" data-target="library">Library</button>
+        <button class="tab" data-target="playground">Play</button>
+      </nav>
+    </section>
+
+    <aside class="notes">
+      <h2>Static Mode</h2>
+      <p>这是 Stickify 的浏览器静态预览。它不是 iOS 真机运行结果，但可以快速看首页、云库和 Playground 的视觉方向。底部 tab 可以点击切换。</p>
+    </aside>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll(".tab");
+    const screens = document.querySelectorAll(".screen");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.dataset.target;
+        tabs.forEach((item) => item.classList.toggle("active", item === tab));
+        screens.forEach((screen) => screen.classList.toggle("active", screen.dataset.screen === target));
+      });
+    });
+  </script>
+</body>
+</html>

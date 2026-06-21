@@ -1,0 +1,557 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Stickify Module 3 UI Preview</title>
+  <style>
+    :root {
+      --sky: #7fd7ff;
+      --blue: #0056b8;
+      --red: #e52b1e;
+      --grey: #ebebeb;
+      --ink: #2d2926;
+      --mint: #bff5dd;
+      --violet: #ddd5ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #f7fbff, #eeeeee 46%, #fff4f1);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+    }
+
+    .page {
+      padding: 28px;
+    }
+
+    .title {
+      max-width: 1180px;
+      margin: 0 auto 20px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 30px;
+      letter-spacing: 0;
+    }
+
+    .title p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      font-weight: 700;
+      color: rgba(45, 41, 38, .68);
+    }
+
+    .screens {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(300px, 390px));
+      gap: 24px;
+      justify-content: center;
+      align-items: start;
+    }
+
+    .shot h2 {
+      margin: 0 0 10px;
+      text-align: center;
+      font-size: 15px;
+    }
+
+    .phone {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 390 / 844;
+      overflow: hidden;
+      border: 10px solid #151515;
+      border-radius: 44px;
+      background: var(--grey);
+      box-shadow: 0 22px 56px rgba(20, 24, 28, .25);
+    }
+
+    .island {
+      position: absolute;
+      z-index: 20;
+      top: 10px;
+      left: 50%;
+      width: 120px;
+      height: 32px;
+      transform: translateX(-50%);
+      background: #111;
+      border-radius: 999px;
+    }
+
+    .screen {
+      position: absolute;
+      inset: 0;
+      padding: 58px 18px 96px;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .back, .circle-tool {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      background: white;
+      font-weight: 1000;
+      box-shadow: 0 10px 18px rgba(0, 0, 0, .12);
+    }
+
+    .header-text {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .header h3 {
+      margin: 0;
+      font-size: 28px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .header p {
+      margin: 4px 0 0;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(45, 41, 38, .62);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .home-title {
+      margin-bottom: 18px;
+    }
+
+    .home-title h3 {
+      margin: 0;
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    .home-title p {
+      margin: 8px 0 0;
+      font-size: 14px;
+      font-weight: 800;
+      color: rgba(45, 41, 38, .62);
+    }
+
+    .play-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 170px;
+      margin-bottom: 16px;
+      padding: 16px;
+      border-radius: 28px;
+      background: white;
+      box-shadow: 0 16px 28px rgba(0, 0, 0, .08);
+      border: 1.5px solid rgba(0, 0, 0, .04);
+    }
+
+    .stack-preview {
+      position: relative;
+      width: 124px;
+      height: 132px;
+      flex: 0 0 auto;
+    }
+
+    .thumb {
+      position: absolute;
+      width: 98px;
+      height: 118px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: white;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, .12);
+      border: 1px solid rgba(0, 0, 0, .05);
+      font-size: 34px;
+    }
+
+    .thumb:nth-child(1) { left: 0; top: 10px; transform: rotate(-7deg); }
+    .thumb:nth-child(2) { left: 12px; top: 4px; transform: rotate(2deg); }
+    .thumb:nth-child(3) { left: 24px; top: 0; transform: rotate(8deg); }
+
+    .play-copy h4 {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .play-copy p {
+      margin: 7px 0 10px;
+      font-size: 13px;
+      line-height: 1.35;
+      font-weight: 800;
+      color: rgba(45, 41, 38, .62);
+    }
+
+    .enter {
+      font-size: 13px;
+      font-weight: 1000;
+    }
+
+    .red { color: var(--red); }
+    .blue { color: var(--blue); }
+
+    .stage {
+      position: relative;
+      height: 348px;
+      border-radius: 26px;
+      overflow: hidden;
+      background: white;
+      border: 2px solid rgba(229, 43, 30, .28);
+      box-shadow: 0 16px 28px rgba(0, 0, 0, .10);
+    }
+
+    .fusion-stage {
+      background:
+        linear-gradient(45deg, rgba(0,0,0,.04) 25%, transparent 25%),
+        linear-gradient(-45deg, rgba(0,0,0,.04) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, rgba(0,0,0,.04) 75%),
+        linear-gradient(-45deg, transparent 75%, rgba(0,0,0,.04) 75%);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+      border-color: rgba(0, 86, 184, .28);
+    }
+
+    .empty-hint {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      font-size: 15px;
+      font-weight: 1000;
+      color: rgba(45, 41, 38, .64);
+    }
+
+    .sticker {
+      position: absolute;
+      width: 88px;
+      height: 88px;
+      display: grid;
+      place-items: center;
+      border: 7px solid white;
+      border-radius: 24px;
+      background: #fff1a8;
+      box-shadow: 0 14px 22px rgba(0, 0, 0, .16);
+      font-size: 38px;
+    }
+
+    .s1 { left: 86px; top: 108px; transform: rotate(-12deg); }
+    .s2 { left: 152px; top: 148px; background: #ffd2ca; transform: rotate(9deg); }
+    .s3 { left: 124px; top: 204px; background: #caf4df; transform: rotate(-4deg); }
+
+    .crop-blur {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 1000;
+      background: rgba(30, 40, 54, .22);
+      backdrop-filter: blur(18px);
+    }
+
+    .crop-toolbar {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .seg {
+      display: flex;
+      overflow: hidden;
+      border-radius: 999px;
+      background: white;
+      font-size: 11px;
+      font-weight: 1000;
+    }
+
+    .seg span {
+      padding: 8px 10px;
+    }
+
+    .seg .on {
+      background: var(--blue);
+      color: white;
+    }
+
+    .tools {
+      margin-top: 12px;
+      display: flex;
+      gap: 10px;
+      overflow: hidden;
+      padding: 10px;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, .86);
+    }
+
+    .tool {
+      width: 68px;
+      height: 56px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      font-size: 10px;
+      font-weight: 1000;
+      text-align: center;
+    }
+
+    .tool.red-bg { background: rgba(229, 43, 30, .10); color: var(--red); }
+    .tool.blue-bg { background: rgba(0, 86, 184, .10); color: var(--blue); }
+
+    .tray {
+      margin-top: 12px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .cloud-chip {
+      width: 84px;
+      height: 62px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border-radius: 30px;
+      background: var(--mint);
+      color: #14a56b;
+      font-size: 10px;
+      font-weight: 1000;
+      box-shadow: 0 10px 18px rgba(0,0,0,.10);
+    }
+
+    .tray-sticker {
+      width: 62px;
+      height: 62px;
+      flex: 0 0 auto;
+      display: grid;
+      place-items: center;
+      border: 5px solid white;
+      border-radius: 18px;
+      background: #fff1a8;
+      font-size: 26px;
+      box-shadow: 0 8px 14px rgba(0,0,0,.12);
+    }
+
+    .solidify {
+      position: absolute;
+      right: 22px;
+      bottom: 102px;
+      width: 76px;
+      height: 76px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      color: white;
+      font-size: 11px;
+      font-weight: 1000;
+      box-shadow: 0 14px 22px rgba(0,0,0,.18);
+    }
+
+    .tabbar {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 8px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px;
+      padding: 7px;
+      height: 72px;
+      border-radius: 28px;
+      background: rgba(255,255,255,.96);
+      box-shadow: 0 -8px 24px rgba(0,0,0,.12);
+    }
+
+    .tab {
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      font-size: 11px;
+      font-weight: 1000;
+      color: rgba(45,41,38,.68);
+    }
+
+    .tab.active-red { background: rgba(229,43,30,.12); color: var(--red); }
+
+    @media (max-width: 1060px) {
+      .screens { grid-template-columns: minmax(300px, 390px); }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="title">
+      <h1>Stickify 2.2 - 模块3 Playground UI</h1>
+      <p>静态 UI 展示：模块3主页、玩法1随心贴、玩法2融合。</p>
+    </section>
+
+    <section class="screens">
+      <article class="shot">
+        <h2>模块3主页</h2>
+        <div class="phone">
+          <div class="island"></div>
+          <div class="screen">
+            <div class="home-title">
+              <h3>Playground</h3>
+              <p>选择玩法，继续最近项目或新建作品</p>
+            </div>
+
+            <div class="play-card">
+              <div class="stack-preview">
+                <div class="thumb">🍓</div>
+                <div class="thumb">🧢</div>
+                <div class="thumb">✨</div>
+              </div>
+              <div class="play-copy">
+                <h4>玩法1<br>随心贴</h4>
+                <p>堆叠与散射工具库，自由排列贴纸</p>
+                <div class="enter red">进入 ⟶</div>
+              </div>
+            </div>
+
+            <div class="play-card">
+              <div class="stack-preview">
+                <div class="thumb">🐶</div>
+                <div class="thumb">🕶</div>
+                <div class="thumb">💧</div>
+              </div>
+              <div class="play-copy">
+                <h4>玩法2<br>融合</h4>
+                <p>透明背景融合与特殊裁切工具</p>
+                <div class="enter blue">进入 ⟶</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tabbar">
+            <div class="tab">Capture</div>
+            <div class="tab">Library</div>
+            <div class="tab active-red">Play</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shot">
+        <h2>玩法1 随心贴</h2>
+        <div class="phone">
+          <div class="island"></div>
+          <div class="screen">
+            <div class="header">
+              <div class="back red">‹</div>
+              <div class="header-text">
+                <h3>玩法1 随心贴</h3>
+                <p>堆叠模式已应用</p>
+              </div>
+              <div class="circle-tool" style="background:var(--red);color:white;">🗑</div>
+            </div>
+
+            <div class="stage">
+              <div class="sticker s1">🍓</div>
+              <div class="sticker s2">🧢</div>
+              <div class="sticker s3">✨</div>
+            </div>
+
+            <div class="tools">
+              <div class="tool red-bg">1:1</div>
+              <div class="tool red-bg">堆叠</div>
+              <div class="tool red-bg">散布</div>
+              <div class="tool red-bg">背景</div>
+              <div class="tool red-bg">图片</div>
+              <div class="tool red-bg">贴纸画笔</div>
+              <div class="tool red-bg">裁剪</div>
+            </div>
+
+            <div class="tray">
+              <div class="cloud-chip">☁<br>Daily Finds</div>
+              <div class="tray-sticker">🍓</div>
+              <div class="tray-sticker">🧢</div>
+              <div class="tray-sticker">🐶</div>
+              <div class="tray-sticker">✨</div>
+            </div>
+
+            <div class="solidify" style="background:var(--red);">✓<br>固化</div>
+          </div>
+          <div class="tabbar">
+            <div class="tab">Capture</div>
+            <div class="tab">Library</div>
+            <div class="tab active-red">Play</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="shot">
+        <h2>玩法2 融合</h2>
+        <div class="phone">
+          <div class="island"></div>
+          <div class="screen">
+            <div class="header">
+              <div class="back blue">‹</div>
+              <div class="header-text">
+                <h3>玩法2 融合</h3>
+                <p>裁切模式：选择贴纸并画线</p>
+              </div>
+              <div class="circle-tool" style="background:var(--blue);color:white;">🗑</div>
+            </div>
+
+            <div class="stage fusion-stage">
+              <div class="sticker s1">🐶</div>
+              <div class="sticker s2">🕶</div>
+              <div class="crop-blur">✂ 裁切模式</div>
+              <div class="crop-toolbar">
+                <div class="seg"><span>左侧</span><span class="on">右侧</span></div>
+                <div class="circle-tool" style="width:36px;height:36px;background:var(--blue);color:white;">✓</div>
+              </div>
+            </div>
+
+            <div class="tools">
+              <div class="tool blue-bg">1:1</div>
+              <div class="tool blue-bg">特殊裁切</div>
+              <div class="tool blue-bg">背景</div>
+              <div class="tool blue-bg">图片</div>
+              <div class="tool blue-bg">钢笔</div>
+              <div class="tool blue-bg">裁剪</div>
+            </div>
+
+            <div class="tray">
+              <div class="cloud-chip" style="background:var(--violet);color:#7a5cff;">☁<br>Play Mix</div>
+              <div class="tray-sticker">🐶</div>
+              <div class="tray-sticker">🕶</div>
+              <div class="tray-sticker">💧</div>
+              <div class="tray-sticker">🍜</div>
+            </div>
+
+            <div class="solidify" style="background:var(--blue);">✓<br>固化</div>
+          </div>
+          <div class="tabbar">
+            <div class="tab">Capture</div>
+            <div class="tab">Library</div>
+            <div class="tab active-red">Play</div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
